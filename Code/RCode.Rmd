@@ -381,7 +381,7 @@ close(file_conn)
 
 
 # Step 8: Merging Cluster Data with Metadata
-merged_data <- merge(sample_cluster_mapping, Metadata_LGG, by.x = "Sample_ID", by.y = "barcode", all.x = TRUE)
+merged_data <- merge(sample_cluster_mapping, Metadata, by.x = "Sample_ID", by.y = "barcode", all.x = TRUE)
 View(merged_data)
 write.csv(merged_data, 'Cluster_IDH_status.csv')
 
