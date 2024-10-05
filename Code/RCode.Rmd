@@ -292,6 +292,7 @@ TCGAvisualize_EAbarplot(tf = rownames(dn.EA$ResBP),
                         fig.height = 15)
 ```
 #-------------------------------------------Machine_learning_part-----------------------------------------------------------
+```{r}
 
 # Load necessary libraries
 library(dplyr)
@@ -428,4 +429,4 @@ pheatmap(filtered_data_scaled,
          key.title = "Z-score Expression")  
 dev.off()  # Close the device to save the image
 
-
+```
