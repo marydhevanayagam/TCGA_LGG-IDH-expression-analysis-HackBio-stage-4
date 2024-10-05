@@ -291,10 +291,141 @@ TCGAvisualize_EAbarplot(tf = rownames(dn.EA$ResBP),
                         fig.width = 30,
                         fig.height = 15)
 ```
+#-------------------------------------------Machine_learning_part-----------------------------------------------------------
+
+# Load necessary libraries
+library(dplyr)
+library(tidyr)
+library(caret)
+library(cluster)
+library(factoextra)
+library(ggplot2)
+library(pheatmap)
+library(preprocessCore)
+library(RColorBrewer)
+#----------------------------------------Data_preparation_and_pre_processing------------------------------------------------
+# Step 1: Data Preparation
+# Simulate or load Expression data
+data = Final_data 
+trans = as.data.frame(t(data))
+
+# Assign column names and remove the first row
+colnames(trans) <- trans[1, ]
+trans <- trans[-1, ] 
+
+# Convert all columns to numeric
+sample_ids <- rownames(trans)
+gene_names <- colnames(trans)
+trans <- as.data.frame(lapply(trans, function(x) as.numeric(as.character(x))))
+rownames(trans) <- sample_ids
+colnames(trans) <- gene_names
+
+# Step 2: Quantile Normalization
+trans <- normalize.quantiles(as.matrix(trans)) 
+rownames(trans) <- sample_ids
+colnames(trans) <- gene_names
+
+# Step 3: Variance Filtering
+variance <- apply(trans, 2, var, na.rm = TRUE)
+threshold <- quantile(variance, 0.93, na.rm = TRUE)
+filtered_data <- trans[, variance > threshold]
+
+# Check the dimensions of the filtered data
+dim(filtered_data)
 
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+#----------------------------------------PCA_Filtering_and_visaulization---------------------------------------------------
+# Step 4: PCA
+pca_filtered_result <- prcomp(filtered_data, scale. = TRUE)
+pca_filtered_data <- as.data.frame(pca_filtered_result$x)
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+# Plot the PCA result 
+ggplot(pca_filtered_data, aes(x = PC1, y = PC2)) +
+  geom_point(size = 2) +
+  labs(title = "PCA - Filtered Expression Data", x = "PC1", y = "PC2") +
+  theme_minimal()
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+#---------------------------------------K-means_clustering_and_visaulization------------------------------------------------
+
+# Step 5: K-means Clustering
+k <- 2
+kmeans_result <- kmeans(pca_filtered_data[, c("PC1", "PC2")], centers = k)
+pca_filtered_data$cluster <- as.factor(kmeans_result$cluster)
+
+# Plot the PCA with clusters
+ggplot(pca_filtered_data, aes(x = PC1, y = PC2, color = cluster)) +
+  geom_point(size = 2) +
+  labs(title = "PCA with K-means Clustering (2 Clusters)", x = "PC1", y = "PC2") +
+  theme_minimal() +
+  scale_color_manual(values = rainbow(k)) 
+
+#---------------------------------------Extracting_sample_IDs_from_clusters-------------------------------------------------
+
+# Step 6: Extract Sample IDs for Clusters
+pca_filtered_data$Sample_ID <- rownames(pca_filtered_data)
+sample_cluster_mapping <- pca_filtered_data[, c("Sample_ID", "cluster")]
+write.csv(sample_cluster_mapping, file = "sample_cluster_mapping.csv", row.names = FALSE)
+
+# Step 7: Save Cluster Samples to Text File
+cluster_samples <- split(sample_cluster_mapping$Sample_ID, sample_cluster_mapping$cluster)
+file_conn <- file("cluster_samples.txt")
+for (i in 1:length(cluster_samples)) {
+  writeLines(paste("Cluster", i, "Sample IDs:"), file_conn)
+  writeLines(cluster_samples[[i]], file_conn)
+  writeLines("\n", file_conn)  # Add a new line between clusters
+}
+close(file_conn)
+
+#--------------------------------------- Merging Cluster Data with Metadata_to compare IDH status---------------------------
+
+
+# Step 8: Merging Cluster Data with Metadata
+merged_data <- merge(sample_cluster_mapping, Metadata_LGG, by.x = "Sample_ID", by.y = "barcode", all.x = TRUE)
+View(merged_data)
+write.csv(merged_data, 'Cluster_IDH_status.csv')
+
+
+#---------------------------------------Cluster_means_calculation_and_heatmap_plotting--------------------------------------
+
+# Step 9: Calculate Cluster-Specific Means
+cluster_means <- aggregate(filtered_data, by = list(Cluster = kmeans_result$cluster), FUN = mean)
+
+# Step 10: Heatmap Visualization CLUSTER MEANS
+pheatmap(cluster_means[,-1], 
+         cluster_rows = TRUE, 
+         cluster_cols = TRUE, 
+         main = "Heatmap of Cluster Means for Expression Data",
+         fontsize_row = 8, 
+         fontsize_col = 8, 
+         show_rownames = FALSE, 
+         show_colnames = FALSE)
+
+#---------------------------------------Log_transformation_for_visualization_of_filtered_data-------------------------------
+
+# Step 11: Log Transformation and Z-score Normalization
+filtered_data <- as.data.frame(t(filtered_data))  # Ensure samples are rows
+filtered_data_log <- log(filtered_data + 1)  # Log-transform with pseudocount
+filtered_data_scaled <- t(scale(t(filtered_data_log)))  # Z-score normalization
+
+
+# Step 12: Define Colors and Plot Heatmap
+color_palette <- colorRampPalette(c("blue", "white", "red"))(299)  # Define color palette
+
+# Save the heatmap as PNG
+png(filename = "Gene_Expression_Heatmap_logtransformed.png", width = 1800, height = 2400, res = 200)
+pheatmap(filtered_data_scaled,  
+         col = color_palette,  
+         breaks = seq(-3, 3, length.out = 300),  
+         cluster_rows = TRUE,  
+         cluster_cols = FALSE,  
+         fontsize_row = 4,  
+         fontsize_col = 4,  
+         show_rownames = FALSE,  
+         show_colnames = FALSE,  
+         main = "Gene Expression Heatmap of filtered data 2417 genes and 513 samples",
+         xlab = "Samples",  
+         ylab = "Genes",  
+         key.title = "Z-score Expression")  
+dev.off()  # Close the device to save the image
+
+
