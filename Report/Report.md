@@ -69,7 +69,7 @@ DGEA identified 5916 significant differentially expressed genes (DEG) from the \
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 4.1.1. Volcano plot &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fig 4.1.2. Heatmap of top 5% significantly up and down regulated genes
 
                                                                                                  
-#### 4.1.2. **Functional enrichment analysis (FEA)** {#h.6rqpb8xea3qy}
+#### 4.1.2. **Functional enrichment analysis (FEA)** 
 
 The top 5 GO enriched and KEGG pathways enriched with the 5916 DEA’s (4235 Up and 168 Down - regulated genes) are represented in figures 4.1.3 and 4.1.4 respectively.
 
