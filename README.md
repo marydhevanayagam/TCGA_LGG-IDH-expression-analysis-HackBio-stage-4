@@ -60,7 +60,7 @@ To install Bioconductor packages:
 ### **4.2.  Differential gene expression analysis** 
     
 * The **TCGAanalyze\_DEA()** function was used to compare gene expression levels between the IDH-WT and IDH-Mutant groups using the **edgeR** pipeline.   
-* Genes were categorized as significantly upregulated and significantly downregulated based on a log fold-change (FC) threshold of \>1 or \<(-1) and a false discovery rate (FDR) of \<0.005.  
+* Genes were categorized as significantly upregulated and significantly downregulated based on a log fold-change (FC) threshold of \>1 or \<(-1) and a false discovery rate (FDR) of \<0.05.  
 * A volcano plot was generated for the differentially expressed genes using the **EnhancedVolcano()** function.   
 * The top 5% of upregulated and downregulated genes were selected and a heatmap was generated using the **heatmap.2()** function with a sequential color palette.  
 * The **mapIds()** function in the **org.Hs.eg.db package** was used to convert Ensembl IDs to HGNC symbols for the DGEA results.  
