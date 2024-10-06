@@ -89,7 +89,7 @@ The top 5 GO enriched and KEGG pathways enriched with the 5916 DEA’s (4235 Up 
 
 ### 4.2. **Results of the PCA and K-means, including visualizations and evaluation metrics as presented in the paper** 
 
-K-means clustering via PCA showed two overlapping clusters. Samples in cluster 2 had less variability on the other hand points (samples) in cluster 1 were more spread out and had more variable expression levels. Upon extracting the samples IDs from both clusters we came to know that out of 180 samples, cluster 1 had the most IDH mutant samples 151 and 29 wild types on the other hand cluster 2 had the highest density of samples 333 out of which 268 were IDH mutant and 65 wild-type. This indicates the domination of the IDH wild state in both clusters. The heatmap depicts low expression levels of IDH mutant state in both clusters indicating its domination in causing LGG (Fig. 4.2.3, 4.2.4).
+K-means clustering via PCA showed two overlapping clusters. Samples in cluster 2 had less variability on the other hand points (samples) in cluster 1 were more spread out and had more variable expression levels. Upon extracting the samples IDs from both clusters we came to know that out of 180 samples, cluster 1 had the most IDH mutant samples 151 and 29 wild types on the other hand cluster 2 had the highest density of samples 333 out of which 268 were IDH mutant and 65 wild-type. This indicates the domination of the IDH mutant state in both clusters. The heatmap depicts low expression levels of IDH mutant state in both clusters indicating its domination in causing LGG (Fig. 4.2.3, 4.2.4).
 
 <p align = center>
   <kbd>
