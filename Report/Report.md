@@ -123,14 +123,14 @@ K-means clustering via PCA showed two overlapping clusters. Samples in cluster 2
 
    ### 5.1. **DEA and FEA of LGG expression data**
 
-In line with the findings of the study conducted by Ceccarelli M _et al_., 2016, there were more significant upregulated genes in the IDH W/T samples (Fig 4.1.2), indicating plausible epigenetic changes between the two groups. Previous studies indicate hypermethylation in the IDH-mutant samples indicating the role of epigenetic mechanisms<sup>\[10,11,7]</sup>. Further, the master transcription factors and their target genes previously<sup>\[10]</sup> found to be upregulated in IDH\_W/T were upregulated in the current study as well (Fig 5.1). This indicates the possible role of these transcription factors in driving tumor progression in IDH\_WT. Moreover, all of the transcription factors reported in the  Ceccarelli M _et al_., 2016 had higher expression in IDH\_WT state (log2FC>0), however only 6 of them were significant (log2FC>1)\[[SupplementaryData](https://github.com/marydhevanayagam/hackbio-stage-four-TCGA_LGG-analysis/blob/main/Data/DGEA_comparision%20with%20paper.xlsx), Fig 4.1.1]. Further, FEA revealed that the upregulated genes were enriched(n=87) in the sequence-specific DNA binding molecular function (Fig 4.1.3),  indicating the enrichment of transcription factors in the upregulated gene pool.
+In line with the findings of the study conducted by Ceccarelli M _et al_., 2016, there were more significant upregulated genes in the IDH W/T samples (Fig 4.1.2), indicating plausible epigenetic changes between the two groups. Previous studies indicate hypermethylation in the IDH-mutant samples indicating the role of epigenetic mechanisms<sup>\[10,11,7]</sup>. Further, the master transcription factors and their target genes previously<sup>\[10]</sup> found to be upregulated in IDH\_W/T were upregulated in the current study as well (Fig 5.1). This indicates the possible role of these transcription factors in driving tumor progression in IDH\_WT. Moreover, all of the transcription factors reported as upregulated in IDH\_WT in Ceccarelli M _et al_., 2016 also had higher expression in the IDH\_WT state (log2FC>0) in the current study, however only 6 of them were significant (log2FC>1)\[[SupplementaryData](https://github.com/marydhevanayagam/hackbio-stage-four-TCGA_LGG-analysis/blob/main/Data/DGEA_comparision%20with%20paper.xlsx), Fig 4.1.1]. Further, FEA revealed that the upregulated genes were enriched(n=87) in the sequence-specific DNA binding molecular function (Fig 4.1.3),  indicating the enrichment of transcription factors in the upregulated gene pool.
 
 <p align = center>
   <kbd>
 <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXejWw-bNkSxYVaBqOVEXfAEzJ9wi9rt6MRUSZ1AHZ26X4Wazy8Uw49j2pGYOsmnTNoQLpiRnUP7gYWwwVefADRBPAozNjAsQr08OnNlQcZXBpEINNQZLqSHbQFgKq7xCNkbPToYkHjDXe6intMbVU8GCnRU?key=89BCI04Rsiwk571Sn0Mq1Q"" width="600" height = "400">
   </kbd>
   </p>
-  <p align = center><sup> Fig 5.1. Significantly upregulated TF’s identified in target study<sup>\[10]</sup> and their expression in the current analysis </sup></p>
+  <p align = center><sup> Fig 5.1. Significantly upregulated TF’s identified in target study<sup>[10]</sup> and their expression in the current analysis </sup></p>
 
 ### 5.2 **Unsupervised Clustering** 
 
