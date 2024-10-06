@@ -165,19 +165,16 @@ melted_data <- merged_data %>%
   gather(key = "Gene", value = "Expression", -Barcode, -IDH_status)
 
 # Boxplot generation
-png(file= "BoxPlot_Sig_TF.png", width =1000, height =1000, res=150)
 ggplot(melted_data, aes(x = IDH_status, y = Expression, fill = IDH_status)) +
   geom_boxplot() +
   facet_wrap(~ Gene, scales = "free") +
   labs(title = "Gene Expression by IDH status", x = "IDH status", y = "Gene Expression")
-dev.off()
 is.element(paper_tf_enst, selectResults.levels$mRNA ) #check if the genes are present in the analysis
 is.element(paper_genes, up_gene_symbols) #check if the significant genes in the paper are upregulated in our analysis
 
 #convert very p value 0 to very small number to plot -log10(FDR) in volcano plot
 selectResults.levels$FDR[selectResults.levels$FDR == 0] <- 1e-10
 
-png(file = "Volcano plot.png  ", width =1500, height = 1500, res=150)
 EnhancedVolcano(selectResults.levels,
                 lab = selectResults.levels$gene,  # Use gene names or IDs for labels
                 selectLab = paper_genes,
@@ -188,12 +185,12 @@ EnhancedVolcano(selectResults.levels,
                 drawConnectors = TRUE,
                 widthConnectors = 0.75,
                 max.overlaps=20,
-                title = 'Volcano plot of genes differentially expressed in IDH mutant group',
+                title = 'Volcano plot of genes differentially expressed in IDH WT group',
                 pCutoff = 0.05,
                 legendPosition = 'right',
                 legendLabSize = 8,
-                legendIconSize = 3.0)
-dev.off()
+                legendIconSize = 3.0,
+                maxoverlapsConnectors = Inf)
 
 #--------------------------------------------------Heat map Visualization-------------------------------------
 
@@ -234,7 +231,6 @@ breaks <- c(seq(-1, 0.6, length=100),  # For red
                seq(0.61, 0.8, length=100),  # For yellow
                seq(0.81, 1, length=100))
 #Plotting Heat map
-png(filename = "Heatmap_F.png", width = 1500, height = 1500, res =150)
 par(oma = c(1,1,1,1)) #Setting outter margins
 par(mar = c(1,1,1,1)) #setting inner plot margins
 par(cex.main = 0.75) #size of the title
@@ -259,7 +255,6 @@ heatmap.2(as.matrix((heat.data)), #can use log values for better visualization
           RowSideColors = rcodes)
 legend("topright", legend = c("IDH Mutant group(n=419)", "IDH W/T group(n=94)"), fill = c("red", "blue"), title = "Column Colors", cex = 0.8)
 legend("bottomleft", legend = c("Upregulated_genes(n=212)", "Downregulated genes(n=85)"), fill = c("green", "yellow"), title = "Row Colors", cex = 0.8)
-dev.off()
 ```
 
 ```{r}
