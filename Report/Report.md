@@ -25,7 +25,7 @@ Gene expression data for 513 LGG samples (primary tumors with IDH status) were o
 
 <p align = center>
   <kbd>
-<img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdXD1aGgz_5bou6xMt1GPnacDs1x14Wk8v1LaDVdFV4gmQ0uWehrYpvs5SxkROBz0NTTMqWVDjBS2Dh7sE3IIDUCrOZmKlpCS7yRLuhR1z9Hco1fLEPl3WZ-RqGD2hB00cc8TApU7ceO59_hVPOiMSP1ir1?key=xvw3JB3jr1ZpthYtl54CPw](https://lh7-rt.googleusercontent.com/docsz/AD_4nXf3xYQLbJauM1vxJXwcvrcl97ZjF076zwuOUH9pZAhxYzHxm_JTof-NpEIZ6BrhwB0tUvSMFC5MYfCFtk_AEtmHEss6oM4fIccB55FF-SrxkiSK0rmJoZ5D5npgLeI4lM1GIjtJBRZVN9M1aopyc1ggPQg?key=89BCI04Rsiwk571Sn0Mq1Q" width="400" height = "400">
+<img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfxlPqWDE5xnPANvvuh8oPKk1HI8MnJw_91Xt7riKQ50b7jQmaaM5vmBUVafjlvoBRFcNtYHuIlDa6a12EOaL5NqSyqcu9Tu_T1bY1-je-pFwPDsuiEdRcrL48RW1QDIgt6IdVI7m2PrGihtqjbfGyTraiZ?key=89BCI04Rsiwk571Sn0Mq1Q" width="400" height = "400">
   </kbd>
   </p>
   <p align = center><sup>Fig 3. Pipeline for data acquisition and pre-processing</sup></p>
