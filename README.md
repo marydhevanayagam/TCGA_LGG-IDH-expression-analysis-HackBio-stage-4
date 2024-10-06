@@ -30,7 +30,7 @@ In this project, a gene expression dataset for brain low grade glioma (LGG) from
 * cluster  
 * kknn  
 * randomForest  
-* factoextra  
+* factorextra  
 * pheatmap  
 * preprocessCore  
 These can be installed by running:  
@@ -76,12 +76,12 @@ To install Bioconductor packages:
 * The expression dataset was transposed to get a dataframe with samples as rows and genes as columns.   
 * **str()** func was used to display the structures of the R object (expression data).  
 * The expression values in the were numericized and set as data frame using **as.numeric()** and **as.data.frame()** functions.  
-* Quantile normalization of the expression values was done using **normalize.quantiles(as.matrix())** function**.**
+* Quantile normalization of the expression values was done using **normalize.quantiles(as.matrix())** function.
 
 ### **4.5.  Feature selection**
 
 * The feature selection was done based on variance. The low-variance features were filtered out keeping the threshold as 0.93.  
-* Variance of each expression value was found using **apply(your\_data, 2, var, na.rm \= TRUE)** function**.**  
+* Variance of each expression value was found using **apply(your\_data, 2, var, na.rm \= TRUE)** function.  
 * The expression data was filtered out using variance\>threshold.
   
 ### **4.6.  Unsupervised K-means clustering**
