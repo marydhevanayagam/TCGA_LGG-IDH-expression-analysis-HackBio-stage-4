@@ -130,7 +130,7 @@ In line with the findings of the study conducted by Ceccarelli M _et al_., 2016,
 <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXejWw-bNkSxYVaBqOVEXfAEzJ9wi9rt6MRUSZ1AHZ26X4Wazy8Uw49j2pGYOsmnTNoQLpiRnUP7gYWwwVefADRBPAozNjAsQr08OnNlQcZXBpEINNQZLqSHbQFgKq7xCNkbPToYkHjDXe6intMbVU8GCnRU?key=89BCI04Rsiwk571Sn0Mq1Q"" width="600" height = "400">
   </kbd>
   </p>
-  <p align = center><sup> Fig 5.1. Significantly upregulated TF’s identified in target study<sup>\[10]</sup> and current analysis </sup></p>
+  <p align = center><sup> Fig 5.1. Significantly upregulated TF’s identified in target study<sup>\[10]</sup> and their expression in the current analysis </sup></p>
 
 ### 5.2 **Unsupervised Clustering** 
 
